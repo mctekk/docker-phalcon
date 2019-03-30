@@ -21,6 +21,5 @@ RUN  yum -y install php php72-php-common.x86_64 php72-php-devel.x86_64  php72-ph
 
 
 EXPOSE 9000
-
 #start php-fpm
-CMD ["sudo service", "php-fpm start"]
+CMD sudo service php-fpm start
