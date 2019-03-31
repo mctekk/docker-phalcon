@@ -22,6 +22,6 @@ you will need to run the following command
 
 example
 
-`docker-compose exec -it mysql mysql -u root -p`
+`docker-compose exec mysql mysql -u root -p`
 
-`docker-compose exec -it baka sh`
+`docker-compose exec baka sh`
