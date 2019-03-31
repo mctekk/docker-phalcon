@@ -3,7 +3,7 @@ version: "3"
 services:
 
   #php server
-  baka:
+  php:
     build: .
     image: mc:latest
     volumes:
@@ -22,7 +22,7 @@ services:
     ports:
         - "8080:80"
     links:
-        - baka
+        - php
     volumes:
         - .:/app
         - ./nginx.conf:/etc/nginx/conf.d/default.conf
@@ -32,7 +32,8 @@ services:
 
   redis:
     image: 'redis:5.0-alpine'
-    ports: ["6379"]
+    ports: 
+      - "6379:6379"
     volumes:
       - 'redis:/data'
     networks:
@@ -64,7 +65,8 @@ services:
   mysql:
     image: mariadb:10.4
     restart: always
-    ports: ["3306"]
+    ports:
+      - "3306:3306"
     env_file:
       - '.env'
     volumes:
