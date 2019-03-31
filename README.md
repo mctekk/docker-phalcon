@@ -10,7 +10,9 @@ To run you development enviorment you just need to run
 if you know a little bit about docker , you know that in oder to get the info you need to run
 
 `docker container list`
+
 or
+
 `docker-compose ps`
 
 # how do I get into any of the container ssh or mysql?
