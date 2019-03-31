@@ -1,0 +1,106 @@
+version: "3"
+
+services:
+
+  #php server
+  baka:
+    build: .
+    image: mc:latest
+    volumes:
+      - .:/app
+    depends_on:
+      - 'redis'
+      - 'mysql'
+    tty: true
+    ports:
+      - "9000:9000"
+    networks:
+      - local-network
+
+  nginx:
+    image: nginx:latest
+    ports:
+        - "8080:80"
+    links:
+        - baka
+    volumes:
+        - .:/app
+        - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    networks:
+      - public-network
+      - local-network
+
+  redis:
+    image: 'redis:5.0-alpine'
+    ports: ["6379"]
+    volumes:
+      - 'redis:/data'
+    networks:
+      - local-network
+
+  memcached:
+    image: memcached
+    ports:
+      - "11211:11211"
+    networks:
+      - local-network
+
+  elasticsearch: # Elasticsearch Instance
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.7.0
+    container_name: elasticsearch
+    volumes: # Persist ES data in seperate "esdata" volume
+      - esdata:/usr/share/elasticsearch/data
+    environment:
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - discovery.type=single-node
+    command: ./bin/elasticsearch-plugin install https://github.com/NLPchina/elasticsearch-sql/releases/download/6.7.0.0/elasticsearch-sql-6.7.0.0.zip #install sql plugin
+    ports: # Expose Elasticsearch ports
+      - "9300:9300"
+      - "9200:9200"
+    networks:
+      - local-network
+
+  mysql:
+    image: mariadb:10.4
+    restart: always
+    ports: ["3306"]
+    env_file:
+      - '.env'
+    volumes:
+      - "db-data:/var/lib/mysql"
+    networks:
+      - local-network
+  
+  rabbitmq:
+    image: rabbitmq:3.7
+    hostname: "rabbit"
+    env_file:
+      - '.env'
+    labels:
+      NAME: "rabbitmq1"
+    volumes:
+      - "rabbit:/var/lib/rabbitmq"
+    ports:
+      - "15672:15672"
+      - "5672:5672"
+    networks:
+      - local-network
+
+  beanstalkd:
+    image: schickling/beanstalkd:latest
+    restart: always
+    ports:
+      - "11300:11300"
+    networks:
+      - local-network
+
+volumes:
+  db-data:
+  redis:
+  esdata:
+  rabbit:
+
+networks:
+  public-network:
+  local-network:
