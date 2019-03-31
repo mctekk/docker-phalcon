@@ -17,6 +17,9 @@ or
 you will need to run the following command
 
 `docker-compose exec -it {container name} sh`
+
 example
+
 `docker-compose exec -it mysql mysql -u root -p`
+
 `docker-compose exec -it baka sh`
