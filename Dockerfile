@@ -18,6 +18,10 @@ RUN  yum -y install php php-common.x86_64 php-devel.x86_64  php-fpm.x86_64 php-g
                     php-pecl-memcache.x86_64 php-pecl-memcached.x86_64 php-pecl-mcrypt.x86_64 php-pecl-redis.x86_64 \
                     php-pecl-zip.x86_64 php-phalcon3.x86_64 php-sodium.x86_64 php-wkhtmltox.x86_64 composer.noarch
 
+RUN yum -y install vim
+
+RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+
 RUN mkdir /run/php-fpm
 RUN rm -f /etc/php-fpm.d/www.conf
 
