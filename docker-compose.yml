@@ -4,8 +4,7 @@ services:
 
   #php server
   php:
-    build: .
-    image: mc:latest
+    image: mctekk/phalconphp:latest
     volumes:
       - .:/app
     depends_on:
