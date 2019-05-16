@@ -19,6 +19,8 @@ RUN  yum -y install php php-common.x86_64 php-devel.x86_64  php-fpm.x86_64 php-g
                     php-pecl-zip.x86_64 php-phalcon3.x86_64 php-sodium.x86_64 php-wkhtmltox.x86_64 composer.noarch \
                     php-pecl-decimal.x86_64 php-pecl-ds.x86_64 php-pecl-rdkafka.x86_64 php-soap.x86_64
 
+RUN composer global require --no-interaction hirak/prestissimo
+
 RUN yum -y install vim unzip git
 
 RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
