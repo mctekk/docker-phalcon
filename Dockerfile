@@ -28,6 +28,8 @@ RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/too
 RUN mkdir /run/php-fpm
 RUN rm -f /etc/php-fpm.d/www.conf
 
+ENV PATH $HOME/.composer/vendor/bin:$PATH
+
 COPY www.conf /etc/php-fpm.d/
 
 EXPOSE 9000
