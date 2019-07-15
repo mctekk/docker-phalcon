@@ -32,7 +32,7 @@ RUN composer global require --no-interaction hirak/prestissimo
 
 RUN yum -y install vim unzip git
 
-RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
+#RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
 RUN mkdir /run/php-fpm
 RUN rm -f /etc/php-fpm.d/www.conf
