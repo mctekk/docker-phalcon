@@ -28,6 +28,8 @@ RUN mv wkhtmltox/bin/* /usr/local/bin/
 RUN rm -rf wkhtmltox 
 RUN rm -f wkhtmltox-0.12.4_linux-generic-amd64.tar
 
+RUN yum -y install libreoffice-headless
+
 RUN composer global require --no-interaction hirak/prestissimo
 
 RUN yum -y install vim unzip git
