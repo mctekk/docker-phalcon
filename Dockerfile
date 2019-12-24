@@ -10,6 +10,8 @@ RUN  yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 RUN  yum-config-manager --enable remi-php72
 RUN  yum -y install initscripts
 RUN  yum -y update
+RUN yum -y install vim unzip git
+
 RUN  yum -y install php php-common.x86_64 php-devel.x86_64  php-fpm.x86_64 php-gd.x86_64 \
                     php-intl.x86_64 php-json.x86_64 php-mbstring.x86_64 php-mysqlnd.x86_64 \
                     php-pdo.x86_64 php-pecl-cassandra.x86_64 php-pecl-igbinary.x86_64 php-pecl-mongodb.x86_64 \
@@ -30,9 +32,9 @@ RUN rm -f wkhtmltox-0.12.4_linux-generic-amd64.tar
 
 RUN yum -y install libreoffice-headless
 
-RUN composer global require --no-interaction hirak/prestissimo
+RUN  yum -y update
 
-RUN yum -y install vim unzip git
+RUN composer global require --no-interaction hirak/prestissimo
 
 #RUN sh -c "$(curl -fsSL https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
