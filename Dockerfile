@@ -2,7 +2,7 @@ FROM centos:latest
 
 LABEL maintainer="Max Castro <github.com/kaioken>, mctekk <github.com/mctekk>"
 
-ARG PHALCON_VERSION=3.4.3
+ARG PHALCON_VERSION=3.4.5
 ARG PHALCON_EXT_PATH=php7/64bits
 
 RUN  yum -y install epel-release
