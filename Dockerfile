@@ -1,4 +1,4 @@
-FROM centos:latest
+FROM centos:centos7
 
 LABEL maintainer="Max Castro <github.com/kaioken>, mctekk <github.com/mctekk>"
 
