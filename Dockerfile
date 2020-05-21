@@ -7,7 +7,7 @@ ARG PHALCON_EXT_PATH=php7/64bits
 
 RUN  yum -y install epel-release
 RUN  yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-RUN  yum-config-manager --enable remi-php72
+RUN  yum-config-manager --enable remi-php73
 RUN  yum -y install initscripts
 RUN  yum -y update
 RUN yum -y install vim unzip git
