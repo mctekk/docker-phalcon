@@ -32,7 +32,11 @@ RUN rm -f wkhtmltox-0.12.4_linux-generic-amd64.tar
 
 RUN yum -y install libreoffice-headless
 
-RUN  yum -y update
+RUN curl https://packages.microsoft.com/config/rhel/7/prod.repo > /etc/yum.repos.d/mssql-release.repo
+
+RUN ACCEPT_EULA=Y yum install -y msodbcsql17.x86_64 php-sqlsrv.x86_64
+
+RUN yum -y update
 
 RUN composer global require --no-interaction hirak/prestissimo
 
