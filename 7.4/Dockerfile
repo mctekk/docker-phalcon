@@ -31,7 +31,7 @@ RUN rm -rf wkhtmltox
 RUN rm -f wkhtmltox-0.12.4_linux-generic-amd64.tar
 
 RUN curl https://packages.microsoft.com/config/rhel/6/prod.repo > /etc/yum.repos.d/mssql-release.repo
-RUN yum -y install php-sqlsrv.x86_64
+RUN ACCEPT_EULA=Y yum -y install php-sqlsrv.x86_64
 
 RUN yum -y install libreoffice-headless
 
