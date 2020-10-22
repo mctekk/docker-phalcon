@@ -7,10 +7,11 @@ ARG PHALCON_EXT_PATH=php7/64bits
 
 RUN  yum -y install epel-release
 RUN  yum -y install http://rpms.remirepo.net/enterprise/remi-release-7.rpm
+RUN  curl https://packages.microsoft.com/config/rhel/6/prod.repo > /etc/yum.repos.d/mssql-release.repo
 RUN  yum-config-manager --enable remi-php74
 RUN  yum -y install initscripts
 RUN  yum -y update
-RUN yum -y install vim unzip git
+RUN  yum -y install vim unzip git
 
 RUN  yum -y install php php-common.x86_64 php-devel.x86_64  php-fpm.x86_64 php-gd.x86_64 \
                     php-intl.x86_64 php-json.x86_64 php-mbstring.x86_64 php-mysqlnd.x86_64 \
@@ -19,7 +20,7 @@ RUN  yum -y install php php-common.x86_64 php-devel.x86_64  php-fpm.x86_64 php-g
                     php-xml.x86_64 php-opcache.x86_64 php-pecl-gmagick.x86_64 php-pecl-geoip.x86_64 \
                     php-pecl-memcache.x86_64 php-pecl-memcached.x86_64 php-pecl-mcrypt.x86_64 php-pecl-redis.x86_64 \
                     php-pecl-zip.x86_64 php-phalcon4.x86_64 php-sodium.x86_64 php-wkhtmltox.x86_64 composer.noarch \
-                    php-pecl-decimal.x86_64 php-pecl-ds.x86_64 php-pecl-rdkafka.x86_64 php-soap.x86_64
+                    php-pecl-decimal.x86_64 php-pecl-ds.x86_64 php-pecl-rdkafka.x86_64 php-soap.x86_64 php-sqlsrv.x86_64
 
 RUN yum -y install xauth wget xorg-x11-server-Xvfb
 
