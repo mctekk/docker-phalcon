@@ -30,7 +30,22 @@ RUN apt-get update && apt-get install -y \
         soap \
         pdo_sqlsrv \
         gmagick \
-        imagick \
+        sockets \
+        zip \
+        bz2 \
+        xsl \
+        pdo_pgsql \
+        pdo_mysql \
+        exif \
+        msgpack \
+        calendar \
+        decimal \
+        gettext \
+        pcntl \
+        shmop \
+        sysvmsg \
+        sysvsem \
+        sysvshm \
         && docker-php-source extract \
         && curl -L -o /tmp/cassandra-cpp-driver.deb "https://downloads.datastax.com/cpp-driver/ubuntu/18.04/cassandra/v2.15.2/cassandra-cpp-driver_2.15.2-1_amd64.deb" \
         && curl -L -o /tmp/cassandra-cpp-driver-dev.deb "https://downloads.datastax.com/cpp-driver/ubuntu/18.04/cassandra/v2.15.2/cassandra-cpp-driver-dev_2.15.2-1_amd64.deb" \
