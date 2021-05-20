@@ -29,6 +29,7 @@ RUN apt-get update && apt-get install -y \
         rdkafka \
         soap \
         pdo_sqlsrv \
+        sqlsrv \
         gmagick \
         sockets \
         zip \
