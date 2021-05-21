@@ -6,8 +6,12 @@ RUN apt-get update && apt-get install -y \
     libgmp-dev \
     multiarch-support \
     libuv1-dev \
-    && chmod +x /usr/local/bin/install-php-extensions && sync && \
-    install-php-extensions \
+    gnupg \
+    && chmod +x /usr/local/bin/install-php-extensions \
+    && sync \
+    && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
+    && curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list \
+    && install-php-extensions \
         @composer-2.0.2 \
         mbstring \
         gd \
