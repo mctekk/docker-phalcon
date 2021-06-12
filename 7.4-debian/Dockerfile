@@ -76,7 +76,7 @@ RUN apt-get update && apt-get install -y \
         && mv /tmp/psr-php/ /usr/src/php/ext/psr-php \
         && rm -rf /tmp/psr-php \
 
-        && curl -L -o /tmp/phalcon4.tar.gz "https://github.com/phalcon/cphalcon/archive/refs/tags/v4.1.0.tar.gz" \
+        && curl -L -o /tmp/phalcon4.tar.gz "https://github.com/phalcon/cphalcon/archive/refs/tags/v4.1.2.tar.gz" \
         && mkdir /tmp/phalcon4 \
         && tar xfz /tmp/phalcon4.tar.gz --strip 1 -C /tmp/phalcon4 \
         && rm -r /tmp/phalcon4.tar.gz \
