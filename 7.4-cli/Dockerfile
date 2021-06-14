@@ -1,4 +1,4 @@
-FROM php:7.4-fpm
+FROM php:7.4-cli
 
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
@@ -69,7 +69,7 @@ RUN apt-get update && apt-get install -y \
         && mv /tmp/cassandra/ext /usr/src/php/ext/cassandra \
         && rm -rf /tmp/cassandra \
 
-        && curl -L -o /tmp/psr-php.tar.gz "https://github.com/jbboehr/php-psr/archive/refs/tags/v1.0.1.tar.gz" \
+        && curl -L -o /tmp/psr-php.tar.gz "https://github.com/jbboehr/php-psr/archive/refs/tags/v1.1.0.tar.gz" \
         && mkdir /tmp/psr-php \
         && tar xfz /tmp/psr-php.tar.gz --strip 1 -C /tmp/psr-php \
         && rm -r /tmp/psr-php.tar.gz \
