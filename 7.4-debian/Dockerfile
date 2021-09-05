@@ -7,14 +7,12 @@ RUN apt-get update && apt-get install -y \
     multiarch-support \
     libuv1-dev \
     gnupg \
-    && apt-get install unzip -y \
-    && apt-get install git -y \
     && chmod +x /usr/local/bin/install-php-extensions \
     && sync \
     && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
     && curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list \
     && apt-get update \
-    && ACCEPT_EULA=Y apt-get install -y msodbcsql17 mssql-tools unixodbc-dev openssl \
+    && ACCEPT_EULA=Y apt-get install -y msodbcsql17 mssql-tools unixodbc-dev openssl unzip git \
     && sed -i -E 's/(CipherString\s*=\s*DEFAULT@SECLEVEL=)2/\11/' /etc/ssl/openssl.cnf \
     && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc \
     && install-php-extensions \
