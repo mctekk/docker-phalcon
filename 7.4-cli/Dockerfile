@@ -4,15 +4,17 @@ ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/do
 
 RUN apt-get update && apt-get install -y \
     libgmp-dev \
-    multiarch-support \
     libuv1-dev \
     gnupg \
+    wget \
+    && wget http://archive.ubuntu.com/ubuntu/pool/main/g/glibc/multiarch-support_2.27-3ubuntu1.4_amd64.deb \
+    && apt-get install ./multiarch-support_2.27-3ubuntu1.4_amd64.deb \
     && chmod +x /usr/local/bin/install-php-extensions \
     && sync \
     && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
     && curl https://packages.microsoft.com/config/debian/10/prod.list > /etc/apt/sources.list.d/mssql-release.list \
     && apt-get update \
-    && ACCEPT_EULA=Y apt-get install -y msodbcsql17 mssql-tools unixodbc-dev openssl \
+    && ACCEPT_EULA=Y apt-get install -y msodbcsql17 mssql-tools unixodbc-dev openssl unzip git \
     && sed -i -E 's/(CipherString\s*=\s*DEFAULT@SECLEVEL=)2/\11/' /etc/ssl/openssl.cnf \
     && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc \
     && install-php-extensions \
