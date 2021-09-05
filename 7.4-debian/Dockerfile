@@ -7,6 +7,8 @@ RUN apt-get update && apt-get install -y \
     multiarch-support \
     libuv1-dev \
     gnupg \
+    && apt-get install unzip -y \
+    && apt-get install git -y \
     && chmod +x /usr/local/bin/install-php-extensions \
     && sync \
     && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
@@ -41,8 +43,6 @@ RUN apt-get update && apt-get install -y \
         gmagick \
         sockets \
         zip \
-        unzip \
-        git \
         bz2 \
         xsl \
         pdo_pgsql \
