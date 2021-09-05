@@ -41,6 +41,8 @@ RUN apt-get update && apt-get install -y \
         gmagick \
         sockets \
         zip \
+        unzip \
+        git \
         bz2 \
         xsl \
         pdo_pgsql \
