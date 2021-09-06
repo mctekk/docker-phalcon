@@ -3,6 +3,8 @@ FROM php:7.4-fpm
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
 RUN apt-get update && apt-get install -y \
+    unzip \
+    git \
     libgmp-dev \
     multiarch-support \
     libuv1-dev \
