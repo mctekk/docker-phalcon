@@ -66,7 +66,7 @@ RUN apt-get update && apt-get install -y \
         && mv /tmp/psr-php/ /usr/src/php/ext/pasr-php \
         && rm -rf /tmp/psr-php \
 
-        && curl -L -o /tmp/phalcon5.tar.gz "https://github.com/phalcon/cphalcon/archive/refs/tags/v5.0.0alpha4.tar.gz" \
+        && curl -L -o /tmp/phalcon5.tar.gz "https://github.com/phalcon/cphalcon/archive/refs/tags/v5.0.0alpha7.tar.gz" \
         && mkdir /tmp/phalcon5 \
         && tar xfz /tmp/phalcon5.tar.gz --strip 1 -C /tmp/phalcon5 \
         && rm -r /tmp/phalcon5.tar.gz \
