@@ -74,4 +74,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /tmp/phalcon5 \
 
     && docker-php-ext-install pasr-php phalcon5 \
-    && mv /usr/local/etc/php/conf.d/docker-php-ext-phalcon.ini /usr/local/etc/php/conf.d/docker-php-ext-xphalcon.ini 
+    && mv /usr/local/etc/php/conf.d/docker-php-ext-phalcon.ini /usr/local/etc/php/conf.d/docker-php-ext-xphalcon.ini
+
+
+WORKDIR /app 
