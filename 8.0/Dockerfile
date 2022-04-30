@@ -1,4 +1,4 @@
-FROM php:8.0.14-fpm
+FROM php:8.0.18-fpm
 
 ADD https://github.com/mlocati/docker-php-extension-installer/releases/latest/download/install-php-extensions /usr/local/bin/
 
