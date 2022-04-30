@@ -7,8 +7,8 @@ RUN apt-get update && apt-get install -y \
     libuv1-dev \
     gnupg \
     wget \
-    && wget http://archive.ubuntu.com/ubuntu/pool/main/g/glibc/multiarch-support_2.27-3ubuntu1.4_amd64.deb \
-    && apt-get install ./multiarch-support_2.27-3ubuntu1.4_amd64.deb \
+    && wget http://archive.ubuntu.com/ubuntu/pool/main/g/glibc/multiarch-support_2.27-3ubuntu1.5_amd64.deb\
+    && apt-get install ./multiarch-support_2.27-3ubuntu1.5_amd64.deb \
     && chmod +x /usr/local/bin/install-php-extensions \
     && sync \
     && curl https://packages.microsoft.com/keys/microsoft.asc | apt-key add - \
@@ -18,7 +18,7 @@ RUN apt-get update && apt-get install -y \
     && sed -i -E 's/(CipherString\s*=\s*DEFAULT@SECLEVEL=)2/\11/' /etc/ssl/openssl.cnf \
     && echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc \
     && install-php-extensions \
-        @composer-2.0.2 \
+        @composer-2 \
         mbstring \
         gd \
         memcached \
@@ -78,7 +78,7 @@ RUN apt-get update && apt-get install -y \
         && mv /tmp/psr-php/ /usr/src/php/ext/psr-php \
         && rm -rf /tmp/psr-php \
 
-        && curl -L -o /tmp/phalcon4.tar.gz "https://github.com/phalcon/cphalcon/archive/refs/tags/v4.1.2.tar.gz" \
+        && curl -L -o /tmp/phalcon4.tar.gz "https://github.com/phalcon/cphalcon/archive/refs/tags/v4.1.3.tar.gz" \
         && mkdir /tmp/phalcon4 \
         && tar xfz /tmp/phalcon4.tar.gz --strip 1 -C /tmp/phalcon4 \
         && rm -r /tmp/phalcon4.tar.gz \
