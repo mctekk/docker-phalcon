@@ -25,8 +25,6 @@ RUN apt-get update && apt-get install -y \
         memcache \
         intl \
         igbinary \
-        mongodb \
-        swoole \
         pgsql \
         bcmath \
         opcache \
@@ -58,19 +56,6 @@ RUN apt-get update && apt-get install -y \
         sysvsem \
         sysvshm \
         && docker-php-source extract \
-        && curl -L -o /tmp/cassandra-cpp-driver.deb "https://downloads.datastax.com/cpp-driver/ubuntu/18.04/cassandra/v2.15.2/cassandra-cpp-driver_2.15.2-1_amd64.deb" \
-        && curl -L -o /tmp/cassandra-cpp-driver-dev.deb "https://downloads.datastax.com/cpp-driver/ubuntu/18.04/cassandra/v2.15.2/cassandra-cpp-driver-dev_2.15.2-1_amd64.deb" \
-        && dpkg -i /tmp/cassandra-cpp-driver.deb \
-        && dpkg -i /tmp/cassandra-cpp-driver-dev.deb \
-        && rm -f /tmp/cassandra-cpp-driver.deb \
-        && rm -f /tmp/cassandra-cpp-driver-dev.deb \
-        && curl -L -o /tmp/cassandra.tar.gz "https://github.com/datastax/php-driver/archive/824ba30.tar.gz" \
-        && mkdir /tmp/cassandra \
-        && tar xfz /tmp/cassandra.tar.gz --strip 1 -C /tmp/cassandra \
-        && rm -r /tmp/cassandra.tar.gz \
-        && mv /tmp/cassandra/ext /usr/src/php/ext/cassandra \
-        && rm -rf /tmp/cassandra \
-
         && curl -L -o /tmp/psr-php.tar.gz "https://github.com/jbboehr/php-psr/archive/refs/tags/v1.1.0.tar.gz" \
         && mkdir /tmp/psr-php \
         && tar xfz /tmp/psr-php.tar.gz --strip 1 -C /tmp/psr-php \
@@ -85,4 +70,5 @@ RUN apt-get update && apt-get install -y \
         && mv /tmp/phalcon4/ext /usr/src/php/ext/phalcon4 \
         && rm -rf /tmp/phalcon4 \
 
-        && docker-php-ext-install psr-php phalcon4 cassandra \
+        && docker-php-ext-install psr-php phalcon4 \
+        && apt-get clean
