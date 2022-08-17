@@ -80,5 +80,5 @@ RUN apt-get update && apt-get install -y \
         && make && make install \
         && rm -rf /tmp/swoole \
 
-        && docker-php-ext-install psr-php phalcon4 \
+        && docker-php-ext-install psr-php phalcon4 swoole \
         && apt-get clean
