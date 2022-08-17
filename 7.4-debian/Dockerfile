@@ -71,14 +71,14 @@ RUN apt-get update && apt-get install -y \
         && rm -rf /tmp/phalcon4 \
 
         && curl -L -o /tmp/swoole-7.4.tar.gz "https://github.com/swoole/swoole-src/archive/refs/tags/v4.8.11.tar.gz" \
-        && mkdir /tmp/swoole \
-        && tar xfz /tmp/swoole-7.4.tar.gz --strip 1 -C /tmp/swoole \
+        && mkdir /usr/src/php/ext/swoole \
+        && tar xfz /tmp/swoole-7.4.tar.gz --strip 1 -C /usr/src/php/ext/swoole \
         && rm -r /tmp/swoole-7.4.tar.gz \
-        && cd /tmp/swoole \
+        && cd /usr/src/php/ext/swoole \
         && phpize \
         && ./configure \
         && make && make install \
-        && rm -rf /tmp/swoole \
+        # && rm -rf /tmp/swoole \
 
         && docker-php-ext-install psr-php phalcon4 swoole \
         && apt-get clean
